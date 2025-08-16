@@ -5,7 +5,11 @@ const cors = require("cors")
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: "https://mshop-ecommerce-site.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 
 app.get("/",(req,res)=> {
     return res.status(200).send({messsage : "welcome to ecommerce api - node", status:true})
